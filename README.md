@@ -12,3 +12,49 @@ this is a boiler plate for an Express app with local user authentication. It exi
 * EJS templating and ejs layouts
 * Sequelize user model
 * Materialize styling - nav and footer
+
+## Included Models
+**User Model**
+
+| column | Type | Notes |
+| ----------- | ---------- | --------------------|
+| id | Integer | Serial primary key |
+| firstname | String | Required lenght > 1 |
+| lastname | String | - |
+| email | String | Serial Unique Login |
+| password | String | Hash |
+| birtday | Date | - |
+| admin | Boolean | Defaulted to False |
+| pic | String | - |
+| bio | text | - |
+| createdAt | Date | Automatically added by Sequelize |
+| updatedAt | Date | Automatically added by Sequelize |
+
+## Included Routes
+
+**Routes in Index (main)**
+
+| Method | path | purpose |
+| ----| ------------------------- | --------------- |
+| GET | `/` | Home page |
+| GET | `*` | Catch-all for 404s |
+
+**Routes in controllers/auth.js**
+
+| Method | path | purpose |
+| ----| ------------------------- | --------------- |
+| GET | `/auth/login` | Render login form |
+| POST | `/auth/login` | Process login data |
+| GET | `/auth/signup` | Render sign form |
+| POST | `/auth/signup` | Process sign data |
+| GET | `/auth/logout` | Remove user from session + redirect |
+
+**Routes in controllers/profile.js**
+
+| Method | Path | Purpose |
+| ------ | ---------------------- | ---------------------------- |
+| GET | `/profile/user` | Show user dashboard (authorized user only) |
+| GET | `/profile/admin` | Show admin dashboard (authorized admin only) |
+| GET | `/profile/guest/:id` | View user dashboard as guest (authorized user only) |
+
+## Directions For Use
