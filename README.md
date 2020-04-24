@@ -77,3 +77,13 @@ git clone git@github.com:davidvelichko52/node-auth-boiler-1.git shiny-new-projec
 ```sh
 npm i
 ```
+
+### 3. Customize the new project
+
+Remove defaulty stuff. For example:
+
+* Tile in `layouts.ejs`
+* Logo field in the nav bar
+* Description and Repositry fields in package.json
+* Remove this bpilerplate's readme content
+* Swith Favicon to project-specific one
