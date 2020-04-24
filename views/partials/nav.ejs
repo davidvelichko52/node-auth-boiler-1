@@ -8,24 +8,57 @@
             <li>
                 <a href="/">Home</a>
             </li>
-            <li>
-                <a href="/auth/login">Login</a>
-            </li>
-            <li>
-                <a href="/auth/signup">Signup</a>
-            </li>
+            <% if (user) { %>
+                <li>
+                    <a href="/profile/user">Profile Page</a>
+                </li>
+                <% if(user.admin) { %>
+                    <li>
+                        <a href="/profile/admin">Admin Page</a>
+                    </li>
+                <% } %>
+                <li>
+                    <a href="/auth/logout">Logout</a>
+                </li>
+                <li>
+                    Hi, <%= user.firstname %>
+                </li>
+            <% } else { %>
+                <li>
+                    <a href="/auth/login">Login</a>
+                </li>
+                <li>
+                    <a href="/auth/signup">Signup</a>
+                </li>
+            <% } %>
         </ul>
     </div>
 </nav>
-
 <ul class="sidenav" id="mobile-demo">
     <li>
         <a href="/">Home</a>
     </li>
-    <li>
-        <a href="/auth/login">Login</a>
-    </li>
-    <li>
-        <a href="/auth/signup">Signup</a>
-    </li>
+    <% if (user) { %>
+        <li>
+            <a href="/profile/user">Profile Page</a>
+        </li>
+        <% if(user.admin) { %>
+            <li>
+                <a href="/profile/admin">Admin Page</a>
+            </li>
+        <% } %>
+        <li>
+            <a href="/auth/logout">Logout</a>
+        </li>
+        <li>
+            Hi, <%= user.firstname %>
+        </li>
+    <% } else { %>
+        <li>
+            <a href="/auth/login">Login</a>
+        </li>
+        <li>
+            <a href="/auth/signup">Signup</a>
+        </li>
+    <% } %>
 </ul>
