@@ -86,4 +86,29 @@ Remove defaulty stuff. For example:
 * Logo field in the nav bar
 * Description and Repositry fields in package.json
 * Remove this bpilerplate's readme content
-* Swith Favicon to project-specific one
+* Swith Favicon to project-specific one (in `layouts.ejs` head section)
+
+### 4. Create a new datebase for the new project
+
+```sh
+create <new_db_name>
+```
+**For example
+
+```sh
+createdb shiny_db
+```
+
+### 5. Alter Sequelize Config File
+
+In `config/config.json`, update the database to the one created in step 4. Other settings likely okay, but check username, password, and dialect.
+
+### 6. Check user model for relevance to new project's needs
+
+For example, if the new project dosen't need a birthday field, then delete it from the user model and user migration files.
+
+### 7. Run the Sequelize migrations
+
+```sh
+sequelize db:migrate
+```
